@@ -5,17 +5,17 @@
 </script>
 
 <nav class:nav={$media.desktop} class:mobile-nav={$media.mobile}>
-    <div class="pp"><Image class="pp" src="pp.jpeg" /></div>
+    <div class="pp"><Image class="pp" src="img/pp.jpeg" /></div>
     <ul class="links">
         <li><a class:current={page == 'home'} href="#home">Home</a></li>
+        <li><a class:current={page == 'about'} href="#about">About Me</a></li>
         <li><a class:current={page == 'skills'} href="#skills">Skills</a></li>
         <li><a class:current={page == 'projects'} href="#projects">Projects</a></li>
-        <li><a class:current={page == 'about'} href="#about">About Me</a></li>
     </ul>
     <ul class="horizontal-list">
-        <li><a href="mailto:hcaydan92@hotmail.com" target="_blank"><Image src="mail.png" /></a></li>
-        <li><a href="https://www.linkedin.com/in/hasan-can-aydan-92b161107/" target="_blank"><Image src="linkedin.png" /></a></li>
-        <li><a href="https://github.com/aydanh" target="_blank"><Image src="github.png" /></a></li>
+        <li><a href="mailto:hcaydan92@hotmail.com" target="_blank"><Image src="img/mail.png" /></a></li>
+        <li><a href="https://www.linkedin.com/in/hasan-can-aydan-92b161107/" target="_blank"><Image src="img/linkedin.png" /></a></li>
+        <li><a href="https://github.com/aydanh" target="_blank"><Image src="img/github.png" /></a></li>
     </ul>
 </nav>
 

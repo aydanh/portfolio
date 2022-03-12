@@ -1,12 +1,13 @@
 <script>
 	import Nav from "./Nav.svelte"
-	import Home from "./Home.svelte"
-	import Skills from "./Skills.svelte";
-	import Projects from "./Projects.svelte";
-	import About from "./About.svelte";
+	import Home from "./pages/Home.svelte"
+	import Skills from "./pages/Skills.svelte";
+	import Projects from "./pages/Projects.svelte";
+	import About from "./pages/About.svelte";
     import { media } from 'svelte-match-media'
 	import viewport from './useViewportAction';
 	import { onMount } from "svelte";
+	import Image from './components/Image.svelte';
 
 	onMount(() => {
 		window.onhashchange = function() {
@@ -32,14 +33,14 @@
 <main class:main={$media.desktop} class:mobile={$media.mobile}>
 	<div use:viewport on:enterViewport={() => {upButtonVisible = false;}} on:exitViewport={() => {upButtonVisible = true;}}></div>
 	<Nav {page}/>
-	<div class="content" class:mcontent={$media.mobile}>
+	<div class="content" class:dcontent={$media.desktop} class:mcontent={$media.mobile}>
 		<div id="home" class="page" use:viewport on:enterViewport={() => enterViewPort("home")}><Home/></div>
+		<div id="about" class="page" use:viewport on:enterViewport={() => enterViewPort('about')}><About/></div>
 		<div id="skills" class="page" use:viewport on:enterViewport={() => enterViewPort('skills')}><Skills/></div>
 		<div id="projects" class="page" use:viewport on:enterViewport={() => enterViewPort('projects')}><Projects/></div>
-		<div id="about" class="page" use:viewport on:enterViewport={() => enterViewPort('about')}><About/></div>
 	</div>
 	{#if $media.mobile && upButtonVisible}
-		<button class="upbutton" on:click={goUp}>up</button>
+		<button class="upbutton" on:click={goUp}><img alt="upbutton" src="img/upbtn.png" /></button>
 	{/if}
 </main>
 
@@ -68,17 +69,35 @@
 		width: 100%;
 		scroll-behavior: smooth;
 	}
+
+	.dcontent{
+		margin-left:10vw;
+	}
 	.mcontent{
 		height: initial !important;
 		overflow: visible !important;
 	}
 	.page{
-		height: 2000px;
+		min-height: 100vh;
 	}
 
 	.upbutton{
+		width:48px;
+		height: 48px;
 		position:fixed;
 		bottom:1.5em;
 		right: 1.5em;
+		border: none;
+		background-color: unset;
+	}
+	.upbutton img{
+		width: 100%;
+		height: 100%;
+	}
+	.upbutton:hover{
+		width: 64px;
+		height: 64px;
+		bottom: calc(1.5em - 8px);
+		right: calc(1.5em - 8px);
 	}
 </style>
