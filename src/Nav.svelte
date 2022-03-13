@@ -21,7 +21,7 @@
 
 <style>
     nav{
-        padding-top:40px;
+        padding: 40px 20px;
     }
     .nav{
         display:flex;
@@ -29,6 +29,7 @@
         min-width:300px;
         justify-content: flex-start;
         align-items: center;
+        height: calc(100vh - 80px);
     }
     .mobile-nav{
         display:flex;
