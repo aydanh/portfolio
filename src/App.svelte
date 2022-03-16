@@ -7,7 +7,6 @@
     import { media } from 'svelte-match-media'
 	import viewport from './useViewportAction';
 	import { onMount } from "svelte";
-	import Image from './components/Image.svelte';
 
 	onMount(() => {
 		window.onhashchange = function() {
