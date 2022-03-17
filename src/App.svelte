@@ -1,4 +1,5 @@
 <script>
+	import { fade } from 'svelte/transition';
 	import Nav from "./Nav.svelte"
 	import Home from "./pages/Home.svelte"
 	import Skills from "./pages/Skills.svelte";
@@ -28,15 +29,21 @@
 
 	let upButtonVisible =  false;
 	let page = "home";
+	let navVisible = false;
 </script>
 <main class:main={$media.desktop} class:mobile={$media.mobile}>
+	{#if $media.mobile && !navVisible}
+		<button on:click={()=>{navVisible = true}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/menu.png" /></button>
+	{:else if $media.mobile && navVisible}
+		<button on:click={()=>{navVisible = false}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/close.png" /></button>
+	{/if}
 	<div use:viewport on:enterViewport={() => {upButtonVisible = false;}} on:exitViewport={() => {upButtonVisible = true;}}></div>
-	<Nav {page}/>
+	<Nav {page} visible={navVisible} on:navigate={() => {navVisible = false}}/>
 	<div class="content" class:dcontent={$media.desktop} class:mcontent={$media.mobile}>
-		<div id="home" class="page odd" class:dpage={$media.desktop} use:viewport on:enterViewport={() => enterViewPort("home")}><Home/></div>
-		<div id="about" class="page even" class:dpage={$media.desktop} use:viewport on:enterViewport={() => enterViewPort('about')}><About/></div>
-		<div id="skills" class="page odd" class:dpage={$media.desktop} use:viewport on:enterViewport={() => enterViewPort('skills')}><Skills/></div>
-		<div id="projects" class="page even" class:dpage={$media.desktop} use:viewport on:enterViewport={() => enterViewPort('projects')}><Projects/></div>
+		<div id="home" class="page odd fullpage" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("home")}></div><Home/></div>
+		<div id="about" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("about")}></div><About/></div>
+		<div id="skills" class="page odd" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("skills")}></div><Skills/></div>
+		<div id="projects" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("projects")}></div><Projects/></div>
 	</div>
 	{#if $media.mobile && upButtonVisible}
 		<button class="upbutton" on:click={goUp}><img alt="upbutton" src="img/upbtn.png" /></button>
@@ -62,7 +69,7 @@
 	}
 	.content{
 		height: 100%;
-		overflow: auto;
+		overflow-y: auto;
 		width: 100%;
 		scroll-behavior: smooth;
 	}
@@ -71,12 +78,23 @@
 		overflow: visible !important;
 	}
 	.page{
-		min-height: 100vh;
+		max-width: 100%;
 		padding: 20px;
+		position:relative;
+		padding-bottom:40px;
 	}
 	.dpage{
 		padding-left: 10vw !important;
 		padding-right: 10vw !important;
+		min-height: 100vh;
+	}
+	.fullpage{
+		min-height: calc(100vh - 60px);
+	}
+	.pageanchor{
+		height: 50px;
+		top: calc(50% - 25px);
+		position:absolute;
 	}
 
 	.upbutton{
@@ -97,5 +115,20 @@
 		height: 64px;
 		bottom: calc(1.5em - 8px);
 		right: calc(1.5em - 8px);
+	}
+
+	.navbutton{
+		position:fixed;
+		top:10px;
+		left:0;
+		z-index: 100;
+		width: 64px;
+		height: 64px;
+		background-color: rgba(0,0,0,0);
+		border:none;
+	}
+	.navbutton img{
+		width: 100%;
+		height: 100%;
 	}
 </style>

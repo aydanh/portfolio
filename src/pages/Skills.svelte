@@ -3,8 +3,8 @@
 </script>
 
 <div class="content">
-    <h1>Skills & Tools</h1>
-    <div class=flex>
+    <h1>Skills</h1>
+    <!--div class=flex>
         <Image width="48px" height="48px" text="nodejs" src="img/nodejs.png" />
         <Image width="48px" height="48px" text="javascript" src="img/javascript.png" />
         <Image width="48px" height="48px" text="typescript" src="img/typescript.png" />
@@ -20,17 +20,16 @@
         <Image width="48px" height="48px" text="svelte" src="img/svelte.png" />
         <Image width="48px" height="48px" text="python" src="img/python.png" />
         <Image width="48px" height="48px" text="aws" src="img/aws.png" />
-        <Image width="48px" height="48px" text="salesforce" src="img/salesforce.png" />
-    </div>
+    </div-->
     <p>
         Since beginning my journes as a developer more than six years ago, I took on many projects that required me to use various technologies.
     </p>
     <p>
         The main are of my expertise is fullstack development. I have created both server side rendered and single page applications using several frameworks.
-        I have architected and implemented many web applications for both business and consumer use. I have knowledge of both SQL and NoSQL databases and can write complex queries from stratch and also using an orm.
+        I have architected and implemented many web applications for both business and consumer use. I have knowledge of SQL and NoSQL databases and can write complex queries from stratch and also using an orm.
     </p>
     <p>
-        I also have working knowledge of common AWS services and experience developing custom solutions for Salesforce CRM with apex classes, apex triggers, visualforce pages and lightning components.
+        I also have working knowledge of common AWS services and experience developing custom solutions for Salesforce CRM.
     </p>
 </div>
 

@@ -1,5 +1,5 @@
 <div class="content">
-    <h1>Some Projects I Worked On</h1>
+    <h1>Some of My Projects</h1>
 </div>
 
 <style>

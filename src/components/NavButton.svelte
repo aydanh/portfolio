@@ -8,7 +8,7 @@
 <style>
     button{
         color: white;
-        background-color:#00ADB5;
+        background-color:var(--primary-color);
         border-radius: 10px;
         outline: none;
         -webkit-padding: 0.4em 0;

@@ -1,6 +1,7 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: black white;
+  scroll-behavior: smooth;
 }
 *::-webkit-scrollbar {
   width: 12px;
@@ -14,11 +15,18 @@
   border: 3px solid white;
 }
 
+:root {
+  --text-color: #222831;
+  --heading-color: #393e46;
+  --primary-color: #00adb5;
+  --secondary-color: #eeeeee;
+}
+
 html,
 body {
   position: relative;
   scroll-behavior: smooth;
-  color: #222831;
+  color: var(--text-color);
 }
 
 body {
@@ -47,6 +55,7 @@ textarea {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 input:disabled {
@@ -54,5 +63,5 @@ input:disabled {
 }
 
 h1 {
-  color: #393e46;
+  color: var(--heading-color);
 }
