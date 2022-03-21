@@ -65,3 +65,14 @@ input:disabled {
 h1 {
   color: var(--heading-color);
 }
+
+.outline-button {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+.outline-button:not(:disabled):active {
+  border: 1px solid #ddd;
+  color: #ddd;
+}

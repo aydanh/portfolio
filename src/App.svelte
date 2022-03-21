@@ -2,7 +2,6 @@
 	import { fade } from 'svelte/transition';
 	import Nav from "./Nav.svelte"
 	import Home from "./pages/Home.svelte"
-	import Skills from "./pages/Skills.svelte";
 	import Projects from "./pages/Projects.svelte";
 	import About from "./pages/About.svelte";
     import { media } from 'svelte-match-media'
@@ -33,7 +32,10 @@
 </script>
 <main class:main={$media.desktop} class:mobile={$media.mobile}>
 	{#if $media.mobile && !navVisible}
-		<button on:click={()=>{navVisible = true}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/menu.png" /></button>
+		<div class="header">
+			<button on:click={()=>{navVisible = true}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/menu.png" /></button>
+			<a href="resume.pdf" target="_blank"><button class="outline-button header-resume">Resume</button></a>
+		</div>
 	{:else if $media.mobile && navVisible}
 		<button on:click={()=>{navVisible = false}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/close.png" /></button>
 	{/if}
@@ -42,7 +44,6 @@
 	<div class="content" class:dcontent={$media.desktop} class:mcontent={$media.mobile}>
 		<div id="home" class="page odd fullpage" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("home")}></div><Home/></div>
 		<div id="about" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("about")}></div><About/></div>
-		<div id="skills" class="page odd" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("skills")}></div><Skills/></div>
 		<div id="projects" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("projects")}></div><Projects/></div>
 	</div>
 	{#if $media.mobile && upButtonVisible}
@@ -117,9 +118,17 @@
 		right: calc(1.5em - 8px);
 	}
 
+	.header{
+		position:fixed;
+		height:65px;
+		width: 100%;
+		background-color: var(--secondary-color);
+		z-index: 1;
+	}
+
 	.navbutton{
 		position:fixed;
-		top:10px;
+		top:0;
 		left:0;
 		z-index: 100;
 		width: 64px;
@@ -130,5 +139,11 @@
 	.navbutton img{
 		width: 100%;
 		height: 100%;
+	}
+
+	.header-resume{
+		position: fixed;
+		right:10px;
+		top: calc(30px - 1em);
 	}
 </style>

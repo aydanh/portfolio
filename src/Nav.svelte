@@ -15,10 +15,9 @@
     <ul class="links">
         <li><a on:click={() => dispatch('navigate')} class:current={page == 'home'} href="#home">Home</a></li>
         <li><a on:click={() => dispatch('navigate')} class:current={page == 'about'} href="#about">About Me</a></li>
-        <li><a on:click={() => dispatch('navigate')} class:current={page == 'skills'} href="#skills">Skills</a></li>
         <li><a on:click={() => dispatch('navigate')} class:current={page == 'projects'} href="#projects">Projects</a></li>
     </ul>
-    <a href="resume.pdf" target="_blank"><button class="resume-button">My Resume</button></a>
+    <a href="resume.pdf" target="_blank"><button class="outline-button">Resume</button></a>
     <ul class="horizontal-list">
         <li class:bigger={$media.mobile}><a href="mailto:hcaydan92@hotmail.com" target="_blank"><Image src="img/mail.png" /></a></li>
         <li class:bigger={$media.mobile}><a href="https://www.linkedin.com/in/hasan-can-aydan-92b161107/" target="_blank"><Image src="img/linkedin.png" /></a></li>
@@ -84,17 +83,6 @@
     .horizontal-list li{
         width: 32px;
         height: 32px;
-    }
-
-    .resume-button{
-        border: 1px solid var(--primary-color);
-        color: var(--primary-color);
-        background-color: rgba(0,0,0,0);
-        border-radius: 10px;
-    }
-    .resume-button:not(:disabled):active {
-        border: 1px solid #ddd;
-        color: #ddd;
     }
 
     .bigger{
