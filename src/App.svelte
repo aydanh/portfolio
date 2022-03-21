@@ -32,8 +32,8 @@
 </script>
 <main class:main={$media.desktop} class:mobile={$media.mobile}>
 	{#if $media.mobile && !navVisible}
-		<div class="header">
-			<button on:click={()=>{navVisible = true}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/menu.png" /></button>
+		<div class="header" transition:fade={{ duration: 500 }}>
+			<button on:click={()=>{navVisible = true}} class="navbutton"><img alt="menu" src="img/menu.png" /></button>
 			<a href="resume.pdf" target="_blank"><button class="outline-button header-resume">Resume</button></a>
 		</div>
 	{:else if $media.mobile && navVisible}
@@ -121,7 +121,7 @@
 	.header{
 		position:fixed;
 		height:65px;
-		width: 100%;
+		width: 100vw;
 		background-color: var(--secondary-color);
 		z-index: 1;
 	}
