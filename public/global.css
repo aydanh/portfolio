@@ -64,6 +64,11 @@ input:disabled {
 
 h1 {
   color: var(--heading-color);
+  font-size: 3em;
+}
+
+p {
+  font-size: 1.5em;
 }
 
 .outline-button {

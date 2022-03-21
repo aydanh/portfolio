@@ -4,12 +4,3 @@
     <p>I have taken part in every step of web development, working in the field for more than six years. I have created both server side rendered and single page applications using various frameworks. I have architected and implemented several web applications for both business and consumer use.</p>
     <p>Apart from coding I enjoy spending my time with gaming, fencing, reading and learning japanese.</p>
 </div>
-
-<style>
-    h1{
-        font-size: 3em;
-    }
-    p{
-        font-size: 1.5em;
-    }
-</style>

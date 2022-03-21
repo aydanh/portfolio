@@ -32,6 +32,7 @@
     nav{
         padding: 40px 20px;
         overflow-y: auto;
+        font-size: 1.5em;
     }
     .nav{
         min-width:300px;
@@ -45,7 +46,6 @@
         z-index: 10;
         background-color:var(--secondary-color);
         width: calc(100% - 40px);
-		font-size: 1.5em !important;
         padding-top:80px;
     }
     .nav-content{

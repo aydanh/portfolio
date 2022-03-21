@@ -9,33 +9,75 @@
 	import { onMount } from "svelte";
 
 	onMount(() => {
+		prevScroll = window.scrollY;
+
 		window.onhashchange = function() {
 			page = window.location.hash.split('#')[1];
 			if (!window.innerDocClick) {
 				document.getElementById(page).scrollIntoView();
 			}
 		}
-	})
+
+		window.addEventListener('scroll', function(){
+			let curScroll = window.scrollY;
+			let direction = 0;
+			if (curScroll > prevScroll) { 
+				//scrolled up
+				direction = 2;
+			}
+			else if (curScroll < prevScroll) { 
+				//scrolled down
+				direction = 1;
+			}
+
+			if (direction !== prevDirection) {
+				toggleHeader(direction, curScroll);
+			}
+
+
+			prevScroll = curScroll;
+		})
+	});
 
 	function goUp(){
 		window.scrollTo(0,0);
 	}
+
 	function enterViewPort(viewport){
 		const location = window.location.toString().split('#')[0];
 		history.replaceState(null, null, location + '#' + viewport);
 		page = viewport;
 	}
 
+	function toggleHeader(direction, curScroll){
+		// console.log(direction);
+		// console.log(curScroll);
+		if (direction === 2 && curScroll > 65) { 
+			navHidden = true;
+			prevDirection = direction;
+		}
+		else if (direction === 1) {
+			navHidden = false;
+			prevDirection = direction;
+		}
+	}
+
 	let upButtonVisible =  false;
 	let page = "home";
 	let navVisible = false;
+
+	let navHidden = false;
+	let prevScroll = 0;
+	let prevDirection = 0;
 </script>
 <main class:main={$media.desktop} class:mobile={$media.mobile}>
 	{#if $media.mobile && !navVisible}
-		<div class="header" transition:fade={{ duration: 500 }}>
-			<button on:click={()=>{navVisible = true}} class="navbutton"><img alt="menu" src="img/menu.png" /></button>
-			<a href="resume.pdf" target="_blank"><button class="outline-button header-resume">Resume</button></a>
-		</div>
+		{#if !navHidden}
+			<div class="header" transition:fade={{ duration: 200 }}>
+				<button on:click={()=>{navVisible = true}} class="navbutton"><img alt="menu" src="img/menu.png" /></button>
+				<a href="resume.pdf" target="_blank"><button class="outline-button header-resume">Resume</button></a>
+			</div>
+		{/if}
 	{:else if $media.mobile && navVisible}
 		<button on:click={()=>{navVisible = false}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/close.png" /></button>
 	{/if}

@@ -1,9 +1,10 @@
 <script>
     export let text;
     export let target;
+    export let style;
 </script>
 
-<button on:click={() => {window.location.href = '#'+target}}>{text}</button>
+<button style={style} on:click={() => {window.location.href = '#'+target}}>{text}</button>
 
 <style>
     button{
