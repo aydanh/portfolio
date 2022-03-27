@@ -4,6 +4,7 @@
 	import Home from "./pages/Home.svelte"
 	import Projects from "./pages/Projects.svelte";
 	import About from "./pages/About.svelte";
+	import Contact from "./pages/Contact.svelte";
     import { media } from 'svelte-match-media'
 	import viewport from './useViewportAction';
 	import { onMount } from "svelte";
@@ -86,7 +87,8 @@
 	<div class="content" class:dcontent={$media.desktop} class:mcontent={$media.mobile}>
 		<div id="home" class="page odd fullpage" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("home")}></div><Home/></div>
 		<div id="about" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("about")}></div><About/></div>
-		<div id="projects" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("projects")}></div><Projects/></div>
+		<div id="projects" class="page odd" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("projects")}></div><Projects/></div>
+		<div id="contact" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("contact")}></div><Contact/></div>
 	</div>
 	{#if $media.mobile && upButtonVisible}
 		<button class="upbutton" on:click={goUp}><img alt="upbutton" src="img/upbtn.png" /></button>
@@ -122,21 +124,18 @@
 	}
 	.page{
 		max-width: 100%;
-		padding: 20px;
+		padding: 60px 20px;
 		position:relative;
-		padding-bottom:40px;
 	}
 	.dpage{
 		padding-left: 10vw !important;
 		padding-right: 10vw !important;
-		min-height: 100vh;
 	}
 	.fullpage{
 		min-height: calc(100vh - 60px);
 	}
 	.pageanchor{
-		height: 50px;
-		top: calc(50% - 25px);
+		top: 50%;
 		position:absolute;
 	}
 

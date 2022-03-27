@@ -27,6 +27,7 @@ body {
   position: relative;
   scroll-behavior: smooth;
   color: var(--text-color);
+  word-break: break-word;
 }
 
 body {
