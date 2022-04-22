@@ -12,21 +12,21 @@
 
 <div class="card-container">
     <div class="title">
-        <h2>{title}</h2>
-        {#if external}
+        <h2>
+            {title}
             <span class="external">
-                <a href={external}>
-                    <Image src="img/external.png"/>
-                </a>
+                {#if external}
+                    <a href={external} target="_blank">
+                        <Image src="img/external.png"/>
+                    </a>
+                {/if}
+                {#if github}
+                    <a href={github} target="_blank">
+                        <Image src="img/github.png"/>
+                    </a>
+                {/if}
             </span>
-        {/if}
-        {#if github}
-            <span class="external">
-                <a href={github} target="_blank">
-                    <Image src="img/github.png"/>
-                </a>
-            </span>
-        {/if}
+        </h2>
     </div>
     <div class="card" class:mcard={$media.mobile || $media.half}>
         {#if $media.desktop && !$media.half}
@@ -37,7 +37,7 @@
             {/if}
             <div class="content">
                 <p><slot name="description"></slot></p>
-                <slot name="tech"></slot>
+                <div class="tech"><slot name="tech"></slot></div>
             </div>
             {#if position=="right"}
                 <div class="image-container">
@@ -50,7 +50,7 @@
             </div>
             <div>
                 <p><slot name="description"></slot></p>
-                <slot name="tech"></slot>
+                <div class="tech"><slot name="tech"></slot></div>
             </div>
         {/if}
     </div>
@@ -92,14 +92,17 @@
 
     .external{
         display: inline-block;
-        height: 1em;
-        width: 1em;
-        margin: 0 5px;
+        height: 0.8em;
+        width: 0.8em;
+        margin: 0.1em;
     }
 
     .title{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        margin-top:60px;
+    }
+
+    .tech{
+        margin-top:10px;
+        color:var(--primary-color);
     }
 </style>

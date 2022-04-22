@@ -1,15 +1,17 @@
 <script>
     import NavButton from '../components/NavButton.svelte';
+    import PageContent from '../components/PageContent.svelte';
 </script>
 
-<div class="content">
-    <h1>Hello!</h1>
-    <p>I am Hasan Can Aydan, a computer engineer specializing in web development.</p>
-    <NavButton style="font-size:1.5em;" target="about" text="Learn More" />
-</div>
+<div class="padding">
+    <PageContent title="Hello!">
+        <p>I am Hasan Can Aydan, a computer engineer specializing in web development.</p>
+        <NavButton style="font-size:1.5em;" target="about" text="Learn More" />
+    </PageContent>
+</div> 
 
 <style>
-    .content{
+    .padding{
         padding-top: 20vh;
     }
     p{
