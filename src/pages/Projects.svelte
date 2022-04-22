@@ -9,7 +9,7 @@
             imageratio="59%"
             title="Vocofy">
         <div slot="description">
-            A social platform focusing on audio sharing with all the features of an social media application. The platform was also used for the research "Voice cloud platform for medical applications" (DOI: <a href="https://doi.org/10.1109/SIU.2017.7960685" target="_blank">10.1109/SIU.2017.7960685</a>).
+            A social platform focusing on audio sharing with all the features of a social media application. The platform was also used for the research "Voice cloud platform for medical applications" (DOI: <a href="https://doi.org/10.1109/SIU.2017.7960685" target="_blank">10.1109/SIU.2017.7960685</a>).
         </div>
         <div slot="tech">
             nodejs, expressjs, pug, parseserver, angularjs, mongodb, aws
