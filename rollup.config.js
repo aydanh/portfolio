@@ -43,7 +43,9 @@ export default {
   },
   plugins: [
     svelte({
-      preprocess: image(),
+      preprocess: image({
+        publicDir: "./public/",
+      }),
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,

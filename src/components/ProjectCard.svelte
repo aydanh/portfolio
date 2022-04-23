@@ -17,12 +17,12 @@
             <span class="external">
                 {#if external}
                     <a href={external} target="_blank">
-                        <Image src="img/external.png"/>
+                        <Image src="img/external.png" />
                     </a>
                 {/if}
                 {#if github}
                     <a href={github} target="_blank">
-                        <Image src="img/github.png"/>
+                        <Image src="img/github.png" />
                     </a>
                 {/if}
             </span>
