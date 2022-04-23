@@ -70,27 +70,30 @@
 	let navHidden = false;
 	let prevScroll = 0;
 	let prevDirection = 0;
+
+	$: isDesktop = $media.desktop && !($media.half && $media.vertical);
+	$: isMobile = $media.mobile || ($media.half && $media.vertical);
 </script>
-<main class:main={$media.desktop} class:mobile={$media.mobile}>
-	{#if $media.mobile && !navVisible}
+<main class:main={isDesktop} class:mobile={isMobile}>
+	{#if isMobile && !navVisible}
 		{#if !navHidden}
 			<div class="header" transition:fade={{ duration: 200 }}>
 				<button on:click={()=>{navVisible = true}} class="navbutton"><img alt="menu" src="img/menu.png" /></button>
 				<a href="resume.pdf" target="_blank"><button class="outline-button header-resume">Resume</button></a>
 			</div>
 		{/if}
-	{:else if $media.mobile && navVisible}
+	{:else if isMobile && navVisible}
 		<button on:click={()=>{navVisible = false}} class="navbutton" transition:fade={{ duration: 500 }}><img alt="menu" src="img/close.png" /></button>
 	{/if}
 	<div use:viewport on:enterViewport={() => {upButtonVisible = false;}} on:exitViewport={() => {upButtonVisible = true;}}></div>
 	<Nav {page} visible={navVisible} on:navigate={() => {navVisible = false}}/>
-	<div class="content" class:dcontent={$media.desktop} class:mcontent={$media.mobile}>
-		<div id="home" class="page odd fullpage" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("home")}></div><Home/></div>
-		<div id="about" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("about")}></div><About/></div>
-		<div id="projects" class="page odd" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("projects")}></div><Projects/></div>
-		<div id="contact" class="page even" class:dpage={$media.desktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("contact")}></div><Contact/></div>
+	<div class="content" class:dcontent={isDesktop} class:mcontent={isMobile}>
+		<div id="home" class="page odd fullpage" class:dpage={isDesktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("home")}></div><Home/></div>
+		<div id="about" class="page even" class:dpage={isDesktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("about")}></div><About/></div>
+		<div id="projects" class="page odd" class:dpage={isDesktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("projects")}></div><Projects/></div>
+		<div id="contact" class="page even" class:dpage={isDesktop}><div class="pageanchor" use:viewport on:enterViewport={() => enterViewPort("contact")}></div><Contact/></div>
 	</div>
-	{#if $media.mobile && upButtonVisible}
+	{#if isMobile && upButtonVisible}
 		<button class="upbutton" on:click={goUp}><img alt="upbutton" src="img/upbtn.png" /></button>
 	{/if}
 </main>

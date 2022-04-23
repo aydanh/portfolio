@@ -19,4 +19,10 @@
     button:not(:disabled):active {
         background-color: #ddd;
     }
+    button:hover{
+        background-color: var(--tetriary-color);
+        -webkit-transition: background-color 300ms linear;
+        -ms-transition: background-color 300ms linear;
+        transition: background-color 300ms linear;
+    }
 </style>

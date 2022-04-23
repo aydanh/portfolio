@@ -79,6 +79,7 @@
     .image-container{
         flex:2;
         padding:5px;
+        border-radius: 10px;
     }
 
     .image-mcontainer{

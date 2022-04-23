@@ -20,6 +20,7 @@
   --heading-color: #393e46;
   --primary-color: #00adb5;
   --secondary-color: #eeeeee;
+  --tetriary-color: #01d1dc;
 }
 
 html,
@@ -81,6 +82,14 @@ p {
 .outline-button:not(:disabled):active {
   border: 1px solid #ddd;
   color: #ddd;
+}
+.outline-button:hover {
+  border: 1px solid var(--tetriary-color);
+  background-color: var(--tetriary-color);
+  color: white;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
 }
 
 .pp {
