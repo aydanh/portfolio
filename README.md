@@ -1,5 +1,7 @@
 ## My portfolio
 
+This is a work in progress. You can see the current state [here](https://elegant-swartz-d1911b.netlify.app/)
+
 Created with [svelte](https://svelte.dev/).
 
 ## Licence
